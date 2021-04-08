@@ -1,0 +1,6 @@
+.only{
+    background-color: red;
+}
+.i, .carousel-item{
+    max-height: 400px;
+}

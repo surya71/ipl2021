@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% block head%}
+<link rel="stylesheet" href="/static/css/home.css">
+{%endblock%}
+
+{% block body%}
+    <h1 class="only">Hello</h1>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner container w-100 d-flex justify-content-center">
+            <div class="carousel-item active justify-content-center">
+                <img class="i w-70" style =" height: 400px;"src="/static/img/csk1.jpeg" alt="First slide">
+            </div>
+            <div class="carousel-item bg-primary  justify-content-center">
+                <img class="i w-70" style =" height: 400px;"src="/static/img/csk.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item bg-primary">
+                <img class="w-100" src="..." alt="Third slide">
+            </div>
+        </div>
+    </div>
+{%endblock%}
+
+{%block script%}
+    <script src="/static/js/home.js"></script>
+{%endblock%}
