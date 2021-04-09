@@ -1,4 +1,3 @@
-var carousel = document.getElementBy("carouselExampleSlidesOnly")
-carousel.carousel({
-    interval: 10
+$('.carousel').carousel({
+    interval: 1500
   })

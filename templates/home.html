@@ -3,21 +3,41 @@
 <link rel="stylesheet" href="/static/css/home.css">
 {%endblock%}
 
-{% block body%}
-    <h1 class="only">Hello</h1>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+{% block body %}
+    <div class="title">
+        <img src="/static/img/title-icon.jpg" class="title-icon" alt="" srcset="">
+        <h1 class="title-ipl">JS IPL ScoreBoard</h1>
+    </div>
+
+    <div id="carouselExampleSlidesOnly" class="carousel d-flex slide" data-ride="carousel">
         <div class="carousel-inner container w-100 d-flex justify-content-center">
             <div class="carousel-item active justify-content-center">
-                <img class="i w-70" style =" height: 400px;"src="/static/img/csk1.jpeg" alt="First slide">
+                <img class="i w-90" style =" height: 400px;width: 100%;" src="/static/img/ipl1.jpg" alt="First slide">
             </div>
-            <div class="carousel-item bg-primary  justify-content-center">
-                <img class="i w-70" style =" height: 400px;"src="/static/img/csk.jpg" alt="First slide">
+            {%for i in carousel%}
+            <div class="carousel-item justify-content-center">
+                <img class="i w-90" style =" height: 400px;width: 100%;"src={{i}} alt="First slide">
             </div>
-            <div class="carousel-item bg-primary">
-                <img class="w-100" src="..." alt="Third slide">
-            </div>
+            {%endfor%}     
         </div>
     </div>
+    {%set i=1%}
+    {% for x in matches %}
+    <div class="single">
+        <img class="card-image" src={{images[x['team-1']]}}>
+        <div class="card">
+            <h5 class="card-header">Match {{loop.index}}</h5>
+            <div class="card-body">
+                <h5 class="card-title">{{x['team-1']|e}} VS {{x['team-2']|e}}</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="/livescore/{{x['unique_id']|e}}" style="margin-left: 70px;"class="btn btn-primary">LiveScore</a>
+                    <a href="/squad/{{x['unique_id']|e}}/team-1" style="margin-left: 70px;" class="btn btn-primary">Team 1 Squad</a>
+                    <a href="/squad/{{x['unique_id']|e}}/team-2" style="margin-left: 70px;" class="btn btn-primary">Team 2 Sqaud</a>
+            </div>
+        </div>
+        <img class="card-image" src={{images[x['team-2']]}}>
+    </div>
+    {% endfor %}
 {%endblock%}
 
 {%block script%}
