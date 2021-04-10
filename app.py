@@ -40,7 +40,7 @@ def livescore(unique_id):
     x = mycol.find({'unique_id':unique_id})
     match = requests.get("https://cricapi.com/api/fantasySummary?apikey=boIC5DMYOVTMW5JVb4yS1qILyaw2&unique_id="+str(unique_id))
     match = match.json()
-    if match['data']['matchStarted'] == False:
+    if 'matchStarted' not in match['data']:
         return render_template('livescore.html',started = False)
     for i in x:
         url = i['url']
