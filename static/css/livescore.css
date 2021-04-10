@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(68, 64, 58);
+}
+
+.title-livescore{
+    text-align: center;
+    color: white;
+}
+
+.scorecard{
+    width:400px;
+}

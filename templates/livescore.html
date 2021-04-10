@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% block head%}
+    <link rel="stylesheet" href="/static/css/livescore.css">
+{%endblock%}
+
+{% block body %}
+    {{started|e}}
+    {%if started == True%}
+        <h1 class="title-livescore">LiveScore Details</h1>
+        <div class="card col-6 scorecard">
+            <h3 style="display: inline-block;">{{livescore['name'][0].text}}</h3>
+            <h4 style="display: inline-block;"class="text-red">{{livescore['score_info'][0].text}}</h4>
+            <h4 style="display: inline-block;"class="text-danger">{{livescore['score'][0].text}}</h4>
+            <br>
+            <h3 style="display: inline-block;">{{livescore['name'][1].text}}</h3>
+            <h4 style="display: inline-block;"class="text-red">{{livescore['score_info'][1].text}}</h4>
+            <h4 style="display: inline-block;"class="text-danger">{{livescore['score'][1].text}}</h4>
+            <br>
+        </div>
+        {%if livescore['status_text']%}
+        <div class="card col-6">
+            <h1 class="text-primary">{{livescore['status_text']}}</h1>
+        </div>
+        {%endif%}
+        <br><br>
+        <h1 class="title-livescore">Commentery</h1>
+        {%for i in comment%}
+        <div class="card">
+            {{i.get_text()}}
+        </div>
+        {%endfor%}
+    {%endif%}
+    {%if started == False%}
+        <h1 class="title-livescore">Match Not started</h1>
+    {%endif%}
+{%endblock%}
+
+{%block script%}
+{%endblock%}
