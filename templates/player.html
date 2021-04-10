@@ -1,0 +1,290 @@
+{%extends 'base.html'%}
+{%block head%}
+<link rel="stylesheet" href="/static/css/player.css">
+{%endblock%}
+
+{%block body%}
+    <h1 class="title-player">{{player.name}}</h1>
+    <div class="profile-pic">
+        <img src="https://www.cricapi.com/playerpic/{{player.pid}}.jpg" alt="" onerror=this.src="/static/img/title-icon.jpg">
+    </div>
+    <div class="personal-details">
+        <h1>Personal Details</h1>
+        <table title="Personal Details"  class="pd table">
+            <tr>
+                <th scope="row">Fullname</th>
+                <td>{{player.fullName}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Country</th>
+                <td>{{player.country}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Date Of Birth</th>
+                <td>{{player.born}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Age</th>
+                <td>{{player.currentAge}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Country</th>
+                <td>{{player.country}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Batting Style</th>
+                <td>{{player.battingStyle}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Bowling Style</th>
+                <td>{{player.bowlingStyle}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Excel At</th>
+                <td>{{player.playingRole}}</td>
+            </tr>
+        </table>
+    </div>
+    <hr style="border:1px solid white;">
+    <h1 style="color:white;" >Batting Details</h1>
+    <div class="batting-details">
+        <table class="table bat-detail table-bordered">
+            <thead>
+                <tr>
+                    <th>Format</th>
+                    <th>50+</th>
+                    <th>100+</th>
+                    <th>Stumpings</th>
+                    <th>Catches</th>
+                    <th>6s</th>
+                    <th>4s</th>
+                    <th>StrikeRate</th>
+                    <th>Balls Faced</th>
+                    <th>Average Run</th>
+                    <th>Highest Score</th>
+                    <th>Total Runs</th>
+                    <th>Not Out</th>
+                    <th>Innings Played</th>
+                    <th>Matches Played</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%if 'listA' in player['data']['batting'] :%}
+                <tr>
+                    <th>List A</th>
+                    <td>{{player['data']['batting']['listA']['50']}}</td>
+                    <td>{{player['data']['batting']['listA']['100']}}</td>
+                    <td>{{player['data']['batting']['listA']['St']}}</td>
+                    <td>{{player['data']['batting']['listA']['Ct']}}</td>
+                    <td>{{player['data']['batting']['listA']['6s']}}</td>
+                    <td>{{player['data']['batting']['listA']['4s']}}</td>
+                    <td>{{player['data']['batting']['listA']['SR']}}</td>
+                    <td>{{player['data']['batting']['listA']['BF']}}</td>
+                    <td>{{player['data']['batting']['listA']['Ave']}}</td>
+                    <td>{{player['data']['batting']['listA']['HS']}}</td>
+                    <td>{{player['data']['batting']['listA']['Runs']}}</td>
+                    <td>{{player['data']['batting']['listA']['NO']}}</td>
+                    <td>{{player['data']['batting']['listA']['Inns']}}</td>
+                    <td>{{player['data']['batting']['listA']['Mat']}}</td>
+                </tr>
+                {%endif%}
+                {%if 'firstClass' in player['data']['batting'] :%}
+                <tr>
+                    <th>First Class</th>
+                    <td>{{player['data']['batting']['firstClass']['50']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['100']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['St']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['Ct']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['6s']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['4s']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['SR']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['BF']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['Ave']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['HS']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['Runs']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['NO']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['Inns']}}</td>
+                    <td>{{player['data']['batting']['firstClass']['Mat']}}</td>
+                </tr>
+                {%endif%}
+                {%if 'T20Is' in player['data']['batting'] :%}
+                <tr>
+                    <th>T-20s</th>
+                    <td>{{player['data']['batting']['T20Is']['50']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['100']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['St']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['Ct']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['6s']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['4s']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['SR']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['BF']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['Ave']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['HS']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['Runs']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['NO']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['Inns']}}</td>
+                    <td>{{player['data']['batting']['T20Is']['Mat']}}</td>
+                </tr>
+                {%endif%}
+                {%if 'ODIs' in player['data']['batting'] :%}
+                <tr>
+                    <th>ODIs</th>
+                    <td>{{player['data']['batting']['ODIs']['50']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['100']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['St']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['Ct']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['6s']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['4s']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['SR']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['BF']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['Ave']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['HS']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['Runs']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['NO']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['Inns']}}</td>
+                    <td>{{player['data']['batting']['ODIs']['Mat']}}</td>
+                </tr>
+                {%endif%}
+                {%if 'tests' in player['data']['batting'] :%}
+                <tr>
+                    <th>Tests</th>
+                    <td>{{player['data']['batting']['tests']['50']}}</td>
+                    <td>{{player['data']['batting']['tests']['100']}}</td>
+                    <td>{{player['data']['batting']['tests']['St']}}</td>
+                    <td>{{player['data']['batting']['tests']['Ct']}}</td>
+                    <td>{{player['data']['batting']['tests']['6s']}}</td>
+                    <td>{{player['data']['batting']['tests']['4s']}}</td>
+                    <td>{{player['data']['batting']['tests']['SR']}}</td>
+                    <td>{{player['data']['batting']['tests']['BF']}}</td>
+                    <td>{{player['data']['batting']['tests']['Ave']}}</td>
+                    <td>{{player['data']['batting']['tests']['HS']}}</td>
+                    <td>{{player['data']['batting']['tests']['Runs']}}</td>
+                    <td>{{player['data']['batting']['tests']['NO']}}</td>
+                    <td>{{player['data']['batting']['tests']['Inns']}}</td>
+                    <td>{{player['data']['batting']['tests']['Mat']}}</td>
+                </tr>
+                {%endif%}
+            </tbody>
+        </table>
+    </div>
+    <!-- Bowling -->
+    <hr style="border:1px solid white;">
+    <h1 style="color:white;" >Bowling Details</h1>
+    <div class="batting-details">
+        <table class="table bat-detail table-bordered">
+            <thead>
+                <tr>
+                    <th>Format</th>
+                    <th>10 Wickets</th>
+                    <th>5 Wickets</th>
+                    <th>4 Wickets</th>
+                    <th>Strike Rate(Balls/Wicket)</th>
+                    <th>Economy</th>
+                    <th>Average</th>
+                    <th>Best Bowling in Match</th>
+                    <th>Best Bowling in Innings</th>
+                    <th>Wickets</th>
+                    <th>Runs</th>
+                    <th>Balls</th>
+                    <th>Innings</th>
+                    <th>Matches</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%if 'listA' in player['data']['bowling'] :%}
+                <tr>
+                    <th>List A</th>
+                    <td>{{player['data']['bowling']['listA']['10']}}</td>
+                    <td>{{player['data']['bowling']['listA']['5w']}}</td>
+                    <td>{{player['data']['bowling']['listA']['4w']}}</td>
+                    <td>{{player['data']['bowling']['listA']['SR']}}</td>
+                    <td>{{player['data']['bowling']['listA']['Econ']}}</td>
+                    <td>{{player['data']['bowling']['listA']['Ave']}}</td>
+                    <td>{{player['data']['bowling']['listA']['BBM']}}</td>
+                    <td>{{player['data']['bowling']['listA']['BBI']}}</td>
+                    <td>{{player['data']['bowling']['listA']['Wkts']}}</td>
+                    <td>{{player['data']['bowling']['listA']['Runs']}}</td>
+                    <td>{{player['data']['bowling']['listA']['Balls']}}</td>
+                    <td>{{player['data']['bowling']['listA']['Inns']}}</td>
+                    <td>{{player['data']['bowling']['listA']['Mat']}}</td>
+                </tr>
+                {%endif%}
+                {%if 'firstClass' in player['data']['bowling'] :%}
+                <tr>
+                    <th>First Class</th>
+                    <td>{{player['data']['bowling']['firstClass']['10']}}</td>
+                    <td>{{player['data']['bowling']['firstClass']['5w']}}</td>
+                    <td>{{player['data']['bowling']['firstClass']['4w']}}</td>
+                    <td>{{player['data']['bowling']['firstClass']['SR']}}</td>
+                    <td>{{player['data']['bowling']['firstClass']['Econ']}}</td>
+                    <td>{{player['data']['bowling']['firstClass']['Ave']}}</td>
+                    <td>{{player['data']['bowling']['firstClass']['BBM']}}</td>
+                    <td>{{player['data']['bowling']['firstClass']['BBI']}}</td>
+                    <td>{{player['data']['bowling']['firstClass']['Wkts']}}</td>
+                    <td>{{player['data']['bowling']['firstClass']['Runs']}}</td>
+                    <td>{{player['data']['bowling']['firstClass']['Balls']}}</td>
+                    <td>{{player['data']['bowling']['firstClass']['Inns']}}</td>
+                    <td>{{player['data']['bowling']['firstClass']['Mat']}}</td>
+                </tr>
+                {%endif%}
+                {%if 'T20Is' in player['data']['bowling'] :%}
+                <tr>
+                    <th>T-20s</th>
+                    <td>{{player['data']['bowling']['T20Is']['10']}}</td>
+                    <td>{{player['data']['bowling']['T20Is']['5w']}}</td>
+                    <td>{{player['data']['bowling']['T20Is']['4w']}}</td>
+                    <td>{{player['data']['bowling']['T20Is']['SR']}}</td>
+                    <td>{{player['data']['bowling']['T20Is']['Econ']}}</td>
+                    <td>{{player['data']['bowling']['T20Is']['Ave']}}</td>
+                    <td>{{player['data']['bowling']['T20Is']['BBM']}}</td>
+                    <td>{{player['data']['bowling']['T20Is']['BBI']}}</td>
+                    <td>{{player['data']['bowling']['T20Is']['Wkts']}}</td>
+                    <td>{{player['data']['bowling']['T20Is']['Runs']}}</td>
+                    <td>{{player['data']['bowling']['T20Is']['Balls']}}</td>
+                    <td>{{player['data']['bowling']['T20Is']['Inns']}}</td>
+                    <td>{{player['data']['bowling']['T20Is']['Mat']}}</td>
+                </tr>
+                {%endif%}
+                {%if 'ODIs' in player['data']['bowling'] :%}
+                <tr>
+                    <th>ODIs</th>
+                    <td>{{player['data']['bowling']['ODIs']['10']}}</td>
+                    <td>{{player['data']['bowling']['ODIs']['5w']}}</td>
+                    <td>{{player['data']['bowling']['ODIs']['4w']}}</td>
+                    <td>{{player['data']['bowling']['ODIs']['SR']}}</td>
+                    <td>{{player['data']['bowling']['ODIs']['Econ']}}</td>
+                    <td>{{player['data']['bowling']['ODIs']['Ave']}}</td>
+                    <td>{{player['data']['bowling']['ODIs']['BBM']}}</td>
+                    <td>{{player['data']['bowling']['ODIs']['BBI']}}</td>
+                    <td>{{player['data']['bowling']['ODIs']['Wkts']}}</td>
+                    <td>{{player['data']['bowling']['ODIs']['Runs']}}</td>
+                    <td>{{player['data']['bowling']['ODIs']['Balls']}}</td>
+                    <td>{{player['data']['bowling']['ODIs']['Inns']}}</td>
+                    <td>{{player['data']['bowling']['ODIs']['Mat']}}</td>
+                </tr>
+                {%endif%}
+                {%if 'tests' in player['data']['bowling'] :%}
+                <tr>
+                    <th>Tests</th>
+                    <td>{{player['data']['bowling']['tests']['10']}}</td>
+                    <td>{{player['data']['bowling']['tests']['5w']}}</td>
+                    <td>{{player['data']['bowling']['tests']['4w']}}</td>
+                    <td>{{player['data']['bowling']['tests']['SR']}}</td>
+                    <td>{{player['data']['bowling']['tests']['Econ']}}</td>
+                    <td>{{player['data']['bowling']['tests']['Ave']}}</td>
+                    <td>{{player['data']['bowling']['tests']['BBM']}}</td>
+                    <td>{{player['data']['bowling']['tests']['BBI']}}</td>
+                    <td>{{player['data']['bowling']['tests']['Wkts']}}</td>
+                    <td>{{player['data']['bowling']['tests']['Runs']}}</td>
+                    <td>{{player['data']['bowling']['tests']['Balls']}}</td>
+                    <td>{{player['data']['bowling']['tests']['Inns']}}</td>
+                    <td>{{player['data']['bowling']['tests']['Mat']}}</td>
+                </tr>
+                {%endif%}
+            </tbody>
+        </table>
+    </div>
+{%endblock%}
+
+{%block script%}
+{%endblock%}

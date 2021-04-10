@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(68, 64, 58);
+    text-align: center;
+}
+
+.title-player{
+    color: white;
+    text-align: center;
+}
+
+.profile-pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic > img{
+    height: 400px;
+    width:400px;
+    border-radius: 25px;
+    box-shadow: 15px 15px 10px black;
+}
+
+.personal-details,.batting-details,.bowling-details{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    color: red;
+
+}
+.pd{
+    color: aliceblue;
+}
+.bat-detail>tbody>tr>td{
+    color:white;
+}
