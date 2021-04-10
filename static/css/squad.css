@@ -1,0 +1,16 @@
+body{
+    background-color: rgb(68, 64, 58);
+}
+
+.title-squad{
+    color: white;
+    text-align: center;
+}
+img{
+    background-color: '/static/img/ipl.jpg';
+    height: 300px;
+    margin-top: 15px;
+}
+.card{
+    background-color: black;
+}

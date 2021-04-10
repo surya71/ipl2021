@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+{%block head%}
+<link rel="stylesheet" href="/static/css/squad.css">
+{%endblock%}
+
+{%block body%}
+    <h1 class="title-squad">{{squad['name']}}</h1>
+    <div class="row">
+        {%for i in squad['players']%}
+            <div class="card col-12 col-sm-6 col-md-3 m-md-5" style="width: 18rem;">
+                <img class="card-img-top" src="https://www.cricapi.com/playerpic/{{i.pid}}.jpg" onerror=this.src="/static/img/title-icon.jpg">
+                <div class="card-body">
+                <h1 class="card-title text-white">{{i.name}}</h1>
+                <a href="/player/{{i.pid}}" class="btn btn-primary">View Profile</a>
+                </div>
+            </div>
+        {%endfor%}
+    </div>
+{%endblock%}
+
+{%block script%}
+{%endblock%}
